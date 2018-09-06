@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "eslint": "5.5.0",
+    "jake": "8.0.18"
+  }
+}
