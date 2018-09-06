@@ -1,6 +1,7 @@
 (function () {
   "use strict";
 
+  let browserTests = require('./build/browsertests');
   let lint = require('./build/lint');
 
   desc("Build everything");
@@ -17,6 +18,19 @@
     if (!lint.lintFiles(files.toArray(), esLintConfig())) {
       fail("Linting error");
     }
+  });
+
+  desc('Run Karma test server');
+  task('karma', () => {
+    browserTests.runServer();
+  });
+
+  desc('Run browser tests');
+  task('test', {async:true}, () => {
+    browserTests.execute((error) => {
+      if (error) fail(error.message);
+      else complete();
+    });
   });
 
   function esLintConfig() {
