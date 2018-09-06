@@ -14,9 +14,7 @@
     files.include('./**/*.js');
     files.exclude('./node_modules/*');
 
-    let eslintRules = esLintConfig();
-
-    if (!lint.lintFiles(files.toArray(), eslintRules)) {
+    if (!lint.lintFiles(files.toArray(), esLintConfig())) {
       fail("Linting error");
     }
   });

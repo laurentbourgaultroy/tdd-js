@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "eslint": "5.5.0",
-    "jake": "8.0.18"
+    "jake": "8.0.18",
+    "karma": "^3.0.0"
   }
 }
