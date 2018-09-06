@@ -2,6 +2,7 @@
   "use strict";
 
   let browserTests = require('./build/browsertests');
+  let fileServer = require('./build/fileserver');
   let lint = require('./build/lint');
 
   desc("Build everything");
@@ -20,11 +21,6 @@
     }
   });
 
-  desc('Run Karma test server');
-  task('karma', () => {
-    browserTests.runServer();
-  });
-
   desc('Run browser tests');
   task('test', {async:true}, () => {
     browserTests.execute((error) => {
@@ -32,6 +28,17 @@
       else complete();
     });
   });
+
+  desc('Run Karma test server');
+  task('karma', () => {
+    browserTests.runServer();
+  });
+
+  desc('Serve static files');
+  task('serve', {async: true}, () => {
+    fileServer.run('./app', 9000);
+  });
+
 
   function esLintConfig() {
     return {
