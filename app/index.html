@@ -9,5 +9,12 @@
   <input id="tdd-parameter" type="text">
   <p id="tdd-output"><em>Awaiting result...</em></p>
   <script type="text/javascript" src="script.js"></script>
+  <script type="text/javascript">
+
+    tdd.run(
+      document.getElementById("tdd-parameter"),
+      document.getElementById("tdd-output"),
+      document.getElementById("tdd-runner"));
+  </script>
 </body>
 </html>

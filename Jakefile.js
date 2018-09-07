@@ -6,7 +6,7 @@
   let lint = require('./build/lint');
 
   desc("Build everything");
-  task("default", ["lint"], () => {
+  task("default", ["lint", 'test'], () => {
     console.log("OK");
   });
 
@@ -59,7 +59,7 @@
         "complete": false,
         "fail": false,
         "chai": false,
-        "lilgame": false
+        "tdd": false
       },
 
       "rules": {
